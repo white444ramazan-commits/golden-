@@ -1,28 +1,23 @@
-# GORILLA PUBG KR Root Launcher
+# GORILLA KR Root Launcher
 
-A root shell launcher/helper for the Android package `com.pubg.krmobile`.
+Android shell launcher for PUBG MOBILE KR (`com.pubg.krmobile`).
 
 ## Install
 
-Copy `gorilla.sh` to `/data/local/tmp/gorilla.sh`, then run:
+Place `gorilla.sh` at `/data/local/tmp/gorilla.sh`, then run:
 
 ```sh
-su -c 'sh /data/local/tmp/gorilla.sh'
+su
+chmod 700 /data/local/tmp/gorilla.sh
+sh /data/local/tmp/gorilla.sh
 ```
 
-The script requests root itself when started without UID 0. It stores its configuration and log under `/data/local/tmp/gorilla/`.
+It re-executes itself through `su` if started without UID 0. The menu launches the installed game, reports package/version and device/root status, and requests Android Game Mode performance or standard mode where the ROM supports it. Logs and configuration are stored in `/data/local/tmp/gorilla/`.
 
-## Included
+## Compatibility
 
-- Root UID check and `su` relaunch
-- Basic KernelSU presence detection
-- PUBG KR package-installed check and version display
-- Launch through Android's launcher intent
-- Optional Android Game Mode performance/standard requests, only when supported by the ROM
-- Persistent setting and diagnostic log
+Requires Android, a working `su` implementation (KernelSU or Magisk), and the installed package `com.pubg.krmobile`. Game Mode behavior depends on the Android version and vendor ROM. The launcher does not guarantee FPS improvements.
 
 ## Scope
 
-This is a launcher and safe Android-side helper. It does not implement ESP, aimbot, game-memory modification, code injection, anti-cheat evasion, or claims of anti-cheat protection. It does not modify game files or game memory.
-
-The script cannot guarantee a particular FPS or thermal result; Game Mode behavior depends on the Android build and device vendor.
+This project is a root launcher and local diagnostics utility. It does not include ESP, aimbot, game-memory patching, code injection, anti-cheat bypass, or anti-cheat evasion. No such functionality is claimed.
